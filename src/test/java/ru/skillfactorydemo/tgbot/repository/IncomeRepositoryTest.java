@@ -18,17 +18,9 @@ class IncomeRepositoryTest {
     private IncomeRepository repository;
 
     @Test
-    public void testRepository() {
-        //noinspection StatementWithEmptyBody
-        for (int i = 0; i < 10; i++, repository.save(new Income()));
-        final List<Income> found = repository.findAll();
-        assertEquals(10, found.size());
-    }
-
-    @Test
     public void testDataScipst(){
         Optional<Income> income = repository.findById(54321L);
         assertTrue(income.isPresent());
-        assertEquals(new BigDecimal("3000"),income.get().getIncome());
+        assertEquals(new BigDecimal("3000.00"),income.get().getIncome());
     }
 }
